@@ -142,7 +142,10 @@ struct Update: SwiftlyCommand {
                 """)
             }
 
-            try Data(postInstallScript.utf8).write(to: postInstallFile, options: .atomic)
+            try Data(shellScript(postInstallScript).utf8).write(
+                to: postInstallFile,
+                options: .atomic
+            )
         }
 
         if pathChanged {

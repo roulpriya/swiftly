@@ -138,7 +138,7 @@ struct Install: SwiftlyCommand {
                     """)
             }
 
-            try Data(postInstallScript.utf8).write(
+            try Data(shellScript(postInstallScript).utf8).write(
                 to: postInstallFile, options: .atomic
             )
         }
